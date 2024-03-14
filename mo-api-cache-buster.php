@@ -1,11 +1,18 @@
 <?php
 /*
 Plugin Name: miniOrange WP REST API Cache Buster
+Plugin URI: https://github.com/JoshuaGoode/mo-api-cache-buster
 Description: Prevents caching for specific REST API endpoints under the 'moserver' namespace. It applies nocache headers and cancels Batcache caching for these endpoints.
 Version: 1.0.0
-Author: Joshua Goode, Pressable.com
-Author URI: https://pressable.com
+Author: Joshua Goode
+Author URI: https://goode.pro
 */
+
+/**
+ * Prevents GET caching for miniOrange's Login using WordPress Users (miniorange-wp-saml-idp-premium) plugin when hosted on WP Cloud-based hosts.
+ * Specifically written for versions 13.1.2 of the miniorange-wp-saml-idp-premiu and lower. May not be necessary in future versions of the plugin.
+ * This iteration is intended to be used as an mu-plugin.
+ */
 
 // Check if the WP_REST_Request class exists to prevent errors in non-REST request contexts
 if ( ! class_exists( 'WP_REST_Request' ) ) {
